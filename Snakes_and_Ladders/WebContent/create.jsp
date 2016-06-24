@@ -1,0 +1,239 @@
+
+    
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<style type="text/css">
+body,td,th {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	color: #000;
+}
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;5
+}
+a:active {
+	text-decoration: none;
+}
+#header{
+	text-shadow:#0CF;
+	text-justify:auto;
+	font-style:italic;
+}
+#button,#button1,#button2,#button4,#button5{
+  color: #009F00;
+  font-weight: bold;
+  font-size: 150%;
+  text-transform: uppercase;
+  font-family:"Comic Sans MS", cursive;
+}
+#text
+{
+	font-family:Andulus;
+	font-size:15px;
+	display:block;
+	margin-right:872px;
+	border:dashed;
+	border-color:#F03;
+	text-align:center;		
+}
+
+#content{
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif
+
+}
+body {
+	background-color: #FFFFFF;
+	background-image: url(bg.jpg);
+	background-size: 880px 768px;
+	background-repeat: no-repeat;
+	background-position: top right;	
+}
+</style>
+
+<script type="text/javascript">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+
+    
+ <%
+ 	if(session.getAttribute("userName")==null)
+ 	{	
+ 	 		String site = new String("Home.jsp");
+    		 response.setStatus(response.SC_MOVED_TEMPORARILY);
+   			response.setHeader("Location", site); 	
+ 	}
+ %>   
+    
+    
+
+function myfunc(id,id1,id2)
+{
+	alert("input given");
+	var s=document.getElementById(id);
+	var op =s.value.length;
+		
+	var usernameRegex =/^[a-zA-Z0-9]+$/;
+	//var len=op.length;
+	 
+		
+		if(!s.value.match(usernameRegex))
+		{
+			alert("Enter a Valid username %%%%");
+			 
+ 			return false;
+		}
+		else
+		{
+			alert("hello");
+			if(myfunc2(id1,id2)==true)
+			{
+				return true;
+			}
+			else
+			{
+				alert("Wrong Board Name ");
+				return false;
+			}
+		}
+		
+	//window.alert(op);
+
+}
+
+function myfunc2(id,id1)
+{
+	var s1=document.getElementById(id);
+	var op1=s1.value;
+	var usernameRegex =/^[a-zA-Z0-9]+$/;
+		if(op1.length<=3)
+		{
+ 	 		alert("Enter a a  Valid BoardName");
+	 		return false;
+		}
+		if(!op1.match(usernameRegex))
+		{
+			alert("Enter Valid Board Name % %");
+			return false;
+ 		}
+		else
+		{
+			if(myfunc3(id1)==true)
+			{
+				return true;
+			
+			}
+			else
+			{
+				return false;
+			}
+		}
+	  
+}
+
+function myfunc3(id)
+{
+	var s1=document.getElementById(id);
+	var pasd=/^(?=.*?[0-9])(?=.*?[a-zA-Z]).{3,30}$/;
+	var op1=s1.value;
+	//alert("A8779DEF");
+	if(op1.length<=3)
+		{
+	 		alert("Enter a Valid Password");
+			return false;
+		}
+		if(!op1.match(pasd))
+		{
+			alert("Enter Valid Password");
+			return false;
+
+		}
+		else
+		{
+			alert("Succcess");
+			return true;
+		}
+	
+}
+
+
+
+</script>
+</head>
+
+<body text="#D6D6D6" leftmargin="10" topmargin="10" marginwidth="10" marginheight="10">
+<div>
+<p><img src="titl1.jpg" width="438" height="169" alt="title" /></p>
+
+</div>
+
+<p>
+    <label for="Home"></label>
+</p>
+<div>
+   <a href="Home.jsp">
+  <p><img src="BUTTONS/button (2).png" width="129" height="41" alt="home" /></a>
+  <a href="create.jsp">
+  <img src="BUTTONS/button (1).png" width="142" height="42" alt="create" /></a>
+  <a href="blank.jsp">
+  <img src="BUTTONS/button (4).png" width="131" height="42" alt="join" /></a></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="reg.jsp"><img src="BUTTONS/button (3).png" width="143" height="41" alt="register" /></a>
+<a href="contact.jsp"><img src="BUTTONS/button (5).png" width="139" height="39" alt="contact" /></p></a>
+</div>
+
+<p><strong>Create Game</strong></p>
+<p id="content">
+  </ul>
+</div>
+</p>
+<div id="text">
+
+<form id="form1" action="CreateHandler" method="post" onsubmit="return myfunc('username','boardname','password')">
+<p>
+  <label for="username">Username : &nbsp;&nbsp;&nbsp; </label>
+  <input type="text"  id="username" name="uname"/>
+</p>
+<p>
+  <label for="boardname"> Board Name:</label>
+  <input type="text" id="boardname" name="bname"/>
+</p>
+<p>
+  <label for="Password">Password :&nbsp;&nbsp;&nbsp;</label>
+  <input type="password" id="password" name="bpass" />
+  <label for="boardname2"></label>
+</p>
+<p>Players Count :
+  <select id="opt" name="diceoption">
+    <option value="1">one</option>
+    <option value="2">two</option>
+    <option value="3">three</option>
+    <option value="4">four</option>
+  </select>
+</p>
+<p>Dice Color :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  
+  <select id="clr" name="color">
+    <option value="Red" style="color:#900">Red</option>
+    <option value="Blue" style="color:#00F">Blue</option>
+    <option value="Green" style="color:#0F0">Green </option>
+    </select>
+</p>
+
+  <p>&nbsp;    </p>
+  <p>
+    <input type="submit" name="submit" id="submit" value="Submit" onclick="return myfunc('username','boardname','password')" />
+  </p>
+</form>
+</div>
+</body>
+</body>
+</html>

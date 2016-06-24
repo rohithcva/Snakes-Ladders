@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Reg Form</title>
+ 
+<script type="text/javascript">
+ 
+ function validate()
+ {
+	 var sid=document.getElementById("sid").value;
+	 
+	if(sid<1)
+	 {
+		alert("Wrong input");	 
+		return false;
+	 }
+	 else if(sid >60)
+	 {		 
+		 alert("Out of Range");
+		 return false;
+	 }
+	 
+	 var sname=document.getElementById("sname").value;
+	 
+	 var svalid=/^[a-zA-Z]+$/;
+	 if(sname.match(svalid))
+	 {
+		 if(sname.length>25)
+		 {
+			 alert("Name too Big");
+		 }
+		 else
+		 {
+			// alert("Sname match");
+		 }
+		 
+	 }
+	 else
+	 {
+		 alert("Wrong Student Name");
+		 return false;
+	 }
+	 
+	 var fname=document.getElementById("fname").value;
+	 if(fname.match(svalid))
+	 {
+		if(fname.length >25)
+		{
+			alert(" Father Name too  big");
+			return false;
+		}
+		else
+		{
+			//alert("fname match");
+		}
+	 }
+	 else
+	 {
+		  alert("Wrong Father's Name");
+		 return false;
+	 }
+	 
+	 var add=document.getElementById("add");
+	 
+	 if(add.length>300)
+	 {
+		 alert("address out of size");
+		 return false;
+		 
+	 }
+	 else if(add.length<1)
+	 {
+		 alert("Address field misssing");
+		 return false;
+	 }
+	 var phno=document.getElementById("phno").value;
+	 if(phno.length>12)
+	 {
+		 alert("Enter correct phone number");
+		 return false;
+	 }
+	 var ptage=document.getElementById("ssc").value;
+	 if(ptage<50)
+	 {
+		 alert("In elgible");
+		 return false;
+	 }
+	 else if (ptage>100)
+	 {
+		 alert("Invalid percentage");
+		 return false;
+	 }
+	 alert("success");
+	 
+ }
+ 
+ 
+ 
+ 
+ </script>
+
+<style type="text/css">
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #2A0000;
+}
+body {
+	background-color: #B7FFDB;
+	background-image: url(green_quotes_life_enjoy_1366x768_13211.jpg);
+	background-repeat: no-repeat;
+}
+#form1
+{
+	background-color: #E7E7CF;
+	
+}
+</style>
+</head>
+
+<body>
+
+<div>
+
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp;</p>
+<form id="form1" name="form1" method="post" action="Form_Servlet" style="  border:thick">
+<h1 align="center" style="font-style:italic">Registration form </h1>
+  <p>
+    <label for="sid">Student_id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+    <input type="number"   id="sid" name="usid" />
+  </p>
+  <p>
+    <label for="sname">Student_name</label>
+    <input type="text"   id="sname" name="usname"/>
+  </p>
+  <p>
+    <label for="fname">Father's Name</label>
+    <input type="text"   id="fname" name="ufname" />
+  </p>
+  <p>
+    <label for="add"> Address&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
+    <input type="text"   id="add" name="uadd"/>
+  </p>
+  <p>
+  <label for="email">Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+    <input type="email" id="email" name="uemail"/>   
+  </p>
+  <p>
+    <label for="phno">Phone Number</label>
+    <input type="number"   id="phno" name="uphno"/>
+  </p>
+  <p>
+    <label for="ssc">X class %  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+    <input type="number"  id="ssc" name="ussc"/> 
+  </p>
+  <p>&nbsp;</p>
+  <p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit"  id="button2" value="Submit" onclick="return validate()" />
+  </p>
+</form>
+<p align="center">&nbsp;</p>
+
+
+
+
+
+
+</div>
+</body>
+</html>
